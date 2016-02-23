@@ -1,6 +1,18 @@
 import React from 'react';
 import { render } from 'react-dom';
-import App from './components/App';
+import { Router, Route, useRouterHistory } from 'react-router';
+import { createHashHistory } from 'history';
+
 import 'antd/lib/index.css';
 
-render(<App />, document.getElementById('root'));
+import Layout from './components/Layout';
+import Form from './components/Form';
+
+const history = useRouterHistory(createHashHistory)({ queryKey: false });
+const routes = (
+	<Route path="/" component={ Layout }>
+		<Route path="form" component={ Form } />
+	</Route>
+);
+
+render(<Router history={ history } routes={ routes } />, document.getElementById('root'));
