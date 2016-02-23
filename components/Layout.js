@@ -10,7 +10,9 @@ class Layout extends Component {
 			<div>
 		      	<Header />
 		      	<Menu />
-		      	{ this.props.children }
+		      	<div className="fl">
+		      		{ this.props.children }
+		      	</div>
 		    </div>
 	    );
 	}

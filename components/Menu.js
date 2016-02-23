@@ -4,7 +4,7 @@ import { Row, Col } from 'antd';
 class Menu extends Component {
 	render() {
 		return (
-			<div>Menu</div>
+			<div className="fl">Menu</div>
 	    );
 	}
 }
