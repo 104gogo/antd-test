@@ -15,13 +15,18 @@ export default {
         loaders: [
             {
                 test: /\.js$/,
-                loaders: [ 'babel' ],
+                loaders: ['babel'],
                 exclude: /node_modules/
             },
             {
                 test: /\.css?$/,
-                loaders: [ 'style', 'raw' ],
-                include: path.join(__dirname,  'node_modules')
+                loaders: ['style', 'raw'],
+                include: path.join(__dirname,  'public')
+            },
+            { 
+                test: /\.scss$/, 
+                loaders: ['style', 'css','autoprefixer', 'sass'],
+                include: path.join(__dirname,  'public')
             }
             // {
             //      test: /.*\.(png|gif|svg|jpe?g)$/,

@@ -3,7 +3,8 @@ import { render } from 'react-dom';
 import { Router, Route, useRouterHistory } from 'react-router';
 import { createHashHistory } from 'history';
 
-import 'antd/lib/index.css';
+import './public/css/antd.css';
+import './public/css/app.scss';
 
 import Layout from './components/Layout';
 import Form from './components/Form';
