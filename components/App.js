@@ -1,24 +1,39 @@
 import React, { Component } from 'react';
-import { Row, Col, Input } from 'antd';
+import { Form, Input, Button, Checkbox, Row, Col } from 'antd';
 
-const InputGroup = Input.Group;
+const FormItem = Form.Item;
 
 class App extends Component {
+	
+	handleSubmit(e) {
+		e.preventDefault();
+    	console.log('收到表单值：', this.props.form.getFieldsValue());
+	}
+
 	render() {
-		return <Row>
-		    <InputGroup>
-		      	<Col span="6">
-		        	<Input id="largeInput" size="large" placeholder="大尺寸" />
-		      	</Col>
-		      	<Col span="6">
-		        	<Input id="defaultInput" placeholder="默认尺寸" />
-		      	</Col>
-		      	<Col span="6">
-		        	<Input id="smallInput" placeholder="小尺寸" size="small" />
-		      	</Col>
-		    </InputGroup>
-	  	</Row>;
+		const { getFieldProps } = this.props.form;
+
+		return (
+		      	<Form horizontal onSubmit={this.handleSubmit.bind(this)}>
+		       	 	<FormItem label="账户：">
+		       	 		
+		          		<Input placeholder="请输入账户名"
+		            		{...getFieldProps('userName')} />
+		            	
+		        	</FormItem>
+		        	<FormItem label="密码：">
+		          		<Input type="password" placeholder="请输入密码"
+		            		{...getFieldProps('password')} />
+		        	</FormItem>
+		        	<FormItem>
+		          		<label className="ant-checkbox-inline">
+		            		<Checkbox {...getFieldProps('agreement')} />记住我
+		          		</label>
+		        	</FormItem>
+		        	<Button type="primary" htmlType="submit">登录</Button>
+		      	</Form>
+	    );
 	}
 }
 
-export default App;
+export default Form.create({})(App);
