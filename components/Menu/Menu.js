@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'antd';
+import './menu.scss';
 
-class Container extends Component {
+class Menu extends Component {
 	render() {
 		return (
-			<div>Container</div>
+			<div className="menu">Menu</div>
 	    );
 	}
 }
 
-export default Container;
+export default Menu;

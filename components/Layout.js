@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 
 import Header from './Header/header';
-import Menu from './Menu';
-import Container from './Container';
+import Menu from './Menu/menu';
 
 class Layout extends Component {
 	render() {
@@ -10,9 +9,7 @@ class Layout extends Component {
 			<div>
 		      	<Header />
 		      	<Menu />
-		      	<div className="fl">
-		      		{ this.props.children }
-		      	</div>
+		      	{ this.props.children }
 		    </div>
 	    );
 	}
