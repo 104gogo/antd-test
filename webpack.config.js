@@ -25,8 +25,7 @@ export default {
             },
             { 
                 test: /\.scss$/, 
-                loaders: ['style', 'css','autoprefixer', 'sass'],
-                include: path.join(__dirname,  'public')
+                loaders: ['style', 'css','autoprefixer', 'sass']
             }
             // {
             //      test: /.*\.(png|gif|svg|jpe?g)$/,

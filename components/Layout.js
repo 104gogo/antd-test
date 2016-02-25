@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Header from './Header';
+import Header from './Header/header';
 import Menu from './Menu';
 import Container from './Container';
 
