@@ -13,9 +13,8 @@ import Form from './components/Form/form';
 const history = useRouterHistory(createHashHistory)({ queryKey: false });
 const routes = (
 	<Route path="/" component={ Layout }>
-		<Route path="app" component={ Container } >
-			<Route path="form" component={ Form }>
-			</Route>
+		<Route path="app" component={ Container }>
+			<Route path="form" component={ Form } />
 		</Route>
 	</Route>
 );

@@ -1,39 +1,23 @@
 import React, { Component } from 'react';
-import { Form, Input, Button, Checkbox, Row, Col } from 'antd';
+import InlineForm from '../Common/InlineForm';
+//import HorizontalForm from '../Common/HorizontalForm';
+import './form.scss';
 
-const FormItem = Form.Item;
-
-class App extends Component {
-	
-	handleSubmit(e) {
-		e.preventDefault();
-    	console.log('收到表单值：', this.props.form.getFieldsValue());
-	}
+class Form extends Component {
 
 	render() {
-		const { getFieldProps } = this.props.form;
 
 		return (
-		      	<Form horizontal onSubmit={this.handleSubmit.bind(this)}>
-		       	 	<FormItem label="账户：">
-		       	 		
-		          		<Input placeholder="请输入账户名"
-		            		{...getFieldProps('userName')} />
-		            	
-		        	</FormItem>
-		        	<FormItem label="密码：">
-		          		<Input type="password" placeholder="请输入密码"
-		            		{...getFieldProps('password')} />
-		        	</FormItem>
-		        	<FormItem>
-		          		<label className="ant-checkbox-inline">
-		            		<Checkbox {...getFieldProps('agreement')} />记住我
-		          		</label>
-		        	</FormItem>
-		        	<Button type="primary" htmlType="submit">登录</Button>
-		      	</Form>
+			<div className="form">
+				<div className="box">
+			      	<InlineForm />
+			    </div>
+			    <div className="box">
+			    
+			    </div>
+		    </div>
 	    );
 	}
 }
 
-export default Form.create({})(App);
+export default Form;
