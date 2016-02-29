@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Row, Col } from 'antd';
 import InlineForm from '../Common/InlineForm';
 import HorizontalForm from '../Common/HorizontalForm';
-import { Row, Col } from 'antd';
+import InputCompose from '../Common/InputCompose';
+import Validate from '../Common/Validate';
 import './form.scss';
 
 class Form extends Component {
@@ -11,16 +13,24 @@ class Form extends Component {
 		return (
 			<div className="form">
 				<Row>
-					<Col span="8">
+					<Col span="12">
 						<div className="box">
 					      	<InlineForm />
 					    </div>
 				    </Col>
-			    </Row>
-			    <Row>
-				    <Col span="8">
+				    <Col span="12">
 					    <div className="box">
 					    	<HorizontalForm /> 
+					    </div>
+				    </Col>
+				    <Col span="12">
+					    <div className="box">
+					    	<InputCompose /> 
+					    </div>
+				    </Col>
+				    <Col span="12">
+					    <div className="box">
+					    	<Validate /> 
 					    </div>
 				    </Col>
 			    </Row>
