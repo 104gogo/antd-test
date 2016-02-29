@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import { Row, Col } from 'antd';
+import { Link } from 'react-router';
 import './menu.scss';
 
 class Menu extends Component {
 	render() {
 		return (
-			<div className="menu">Menu</div>
+			<ul className="menu">
+				<Link to='app/form'><li>Form</li></Link>
+				<Link to='app/table'><li>Table</li></Link>
+			</ul>
 	    );
 	}
 }

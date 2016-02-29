@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import Header from './Header/header';
-import Menu from './Menu/menu';
+import Header from './header/Header';
+import Menu from './menu/Menu';
 
 class Layout extends Component {
 	render() {
