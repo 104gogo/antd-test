@@ -2,7 +2,7 @@ export function getPageTableData(page) {
 	return (dispatch, getState) => {
 		setTimeout(() => {
 			const pageSize = 3;
-			let json = { current: page, total: 21, datas: [] };
+			let json = { current: page, total: 10, datas: [] };
 
 			for(let i = 0; i < pageSize; ++i) {
 				json.datas.push({

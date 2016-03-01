@@ -37,7 +37,7 @@ const columns = [{
 class PageTable extends Component {
 
     componentWillMount() {
-        this.props.actions.getPageTableData(1);
+        this.props.actions.getPageTableData(3);
     }
 
     render() {

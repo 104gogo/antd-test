@@ -9,9 +9,8 @@ const initialState = Map({
 export default function (state = initialState, action) {
 	switch(action.type) {
 		case 'GET_PAGETABLE_DATA': 
-			var json = state.toJS();
-			console.log(json)
-			return state;
+			return state.merge({ pageTableData: action.json });
+			
 	}
 	return state;
 }
