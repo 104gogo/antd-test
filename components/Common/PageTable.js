@@ -34,14 +34,36 @@ const columns = [{
     }];
 
 
-class BaseTable extends Component {
+class PageTable extends Component {
+
+    componentWillMount() {
+        this.props.actions.getPageTableData(1);
+    }
+
     render() {
-        const { data } = this.props;
+        const { current, total, datas } = this.props;
+
+        const rowKey = function(record) {
+            return record.uuid;
+        };
+        const param = {
+            dataSource: datas,
+            rowKey,
+            columns,
+            pagination: { 
+                current,
+                total,
+                pageSize: 3,
+                onChange: function(page) {
+                    this.getData(page);
+                }
+            }
+        };
 
         return (
-            <Table columns={columns} dataSource={data} />
+            <Table  {...param} />
         );
     }
 }
 
-export default BaseTable;
+export default PageTable;
