@@ -41,22 +41,24 @@ class PageTable extends Component {
     }
 
     render() {
-        const { current, total, datas } = this.props;
+        const { loading, current, total, datas } = this.props;
 
         const rowKey = function(record) {
             return record.uuid;
         };
+
         const param = {
             dataSource: datas,
             rowKey,
             columns,
+            loading: loading,
             pagination: { 
                 current,
                 total,
                 pageSize: 3,
                 onChange: function(page) {
-                    this.getData(page);
-                }
+                    this.props.actions.getPageTableData(page);
+                }.bind(this)
             }
         };
 

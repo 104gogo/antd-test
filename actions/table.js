@@ -1,8 +1,9 @@
 export function getPageTableData(page) {
 	return (dispatch, getState) => {
+		dispatch({ type: 'LOADING', json: { loading: true } });
 		setTimeout(() => {
 			const pageSize = 3;
-			let json = { current: page, total: 10, datas: [] };
+			let json = { loading: false, current: page, total: 10, datas: [] };
 
 			for(let i = 0; i < pageSize; ++i) {
 				json.datas.push({
@@ -14,6 +15,6 @@ export function getPageTableData(page) {
 			}
 
 			dispatch({ type: 'GET_PAGETABLE_DATA',  json});
-		}, 1000);
+		}, 1500);
 	}
 }
