@@ -6,6 +6,7 @@ import { Row, Col } from 'antd';
 import * as TableActions from '../../actions/table';
 import BaseTable from '../common/BaseTable';
 import PageTable from '../common/PageTable';
+import EditTable from '../common/EditTable';
 import './table.scss';
 
 class Table extends Component {
@@ -43,6 +44,14 @@ class Table extends Component {
 					    </div>
 				    </Col>
 				    
+				    
+			    </Row>
+			    <Row>
+			    	<Col span="12">
+						<div className="box">
+					      	<EditTable data={ data1 } />
+					    </div>
+				    </Col>
 			    </Row>
 		    </div>
 	    );
