@@ -1,0 +1,7 @@
+@import '../../static/css/common/mixin.scss';
+
+.form {
+	.box {
+		@include box;
+	}
+}

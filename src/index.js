@@ -5,8 +5,8 @@ import { createHashHistory } from 'history';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
 
-import './public/css/antd.css';
-import './public/css/app.scss';
+import './static/css/antd.css';
+import './static/css/app.scss';
 
 import Layout from './components/Layout';
 import Container from './components/container/Container';

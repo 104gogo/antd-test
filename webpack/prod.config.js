@@ -1,16 +1,15 @@
-import path from 'path';
-import webpack from 'webpack';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
+var path = require('path');
+var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-export default {
+module.exports = {
 	entry: [
-        'webpack-hot-middleware/client?reload=true',
-    	'./index.js'
+    	path.join(__dirname, '../src', 'index.js')
     ],
     output: {
-        path: '/',
+        path: path.join(__dirname, '..', 'dist'),
 	    filename: 'bundle.js',
-	    publicPath: '/assets/'
+	    publicPath: '/dist/'
     },
     module: {
         loaders: [
@@ -19,15 +18,8 @@ export default {
                 loaders: ['babel'],
                 exclude: /node_modules/
             },
-            {
-                test: /\.css?$/,
-                loaders: ['style', 'raw'],
-                include: path.join(__dirname,  'public')
-            },
-            { 
-                test: /\.scss$/, 
-                loader: ExtractTextPlugin.extract('style', 'css!autoprefixer!sass')
-            },
+            { test: /\.css?$/, loaders: ['style', 'raw'] },
+            { test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css!autoprefixer!sass') },
             { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/font-woff" },
             { test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/font-woff" },
             { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream" },
