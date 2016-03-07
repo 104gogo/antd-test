@@ -1,5 +1,6 @@
 import path from 'path';
 import webpack from 'webpack';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 export default {
 	entry: [
@@ -25,7 +26,7 @@ export default {
             },
             { 
                 test: /\.scss$/, 
-                loaders: ['style', 'css','autoprefixer', 'sass']
+                loader: ExtractTextPlugin.extract('style', 'css!autoprefixer!sass')
             }
             // {
             //      test: /.*\.(png|gif|svg|jpe?g)$/,
@@ -39,6 +40,7 @@ export default {
     },
     plugins: [
         new webpack.optimize.OccurenceOrderPlugin(),
+        new ExtractTextPlugin('style.css', { allChunks: true }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin()
     ]
