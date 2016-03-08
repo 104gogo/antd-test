@@ -39,11 +39,11 @@ module.exports = {
         extensions: ['', '.js']
     },
     plugins: [
-        new CleanPlugin([assetsPath], { root: projectRootPath }),
+        new CleanPlugin([assetsPath], { root: projectRootPath }),//删除目标文件夹
         new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.optimize.CommonsChunkPlugin(/* chunkName= */'vendor', /* filename= */'vendor.bundle.js'),
-        new ExtractTextPlugin('[name].css', { allChunks: true }),
-        new webpack.DefinePlugin({
+        new webpack.optimize.CommonsChunkPlugin(/* chunkName= */'vendor', /* filename= */'vendor.bundle.js'),//捆绑第三方库文件
+        new ExtractTextPlugin('[name].css', { allChunks: true }),//合并sass和css文件为一个css文件
+        new webpack.DefinePlugin({//加入这个避免redux报错
             'process.env.NODE_ENV': '"production"'
         }),
         new webpack.NoErrorsPlugin()
