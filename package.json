@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "set NODE_ENV=development&&babel-node ./server.js",
     "prod": "set NODE_ENV=production&&webpack --verbose --colors --display-error-details -p --config ./webpack/prod.config.js",
+    "server": "set NODE_ENV=development&&babel-node ./prod.server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
