@@ -1,13 +1,19 @@
 var path = require('path');
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var CleanPlugin = require('clean-webpack-plugin');
+
+var assetsPath = path.join(__dirname, '..', 'dist');
+var projectRootPath = path.join(__dirname, '../');
 
 module.exports = {
-	entry: [
-    	path.join(__dirname, '../src', 'index.js')
-    ],
+    devtool: 'false',
+	entry: {
+    	index: path.join(__dirname, '../src', 'index.js'),
+        vendor: ['react', 'react-dom']
+    },
     output: {
-        path: path.join(__dirname, '..', 'dist'),
+        path: assetsPath,
 	    filename: 'bundle.js',
 	    publicPath: '/dist/'
     },
@@ -31,7 +37,9 @@ module.exports = {
         extensions: ['', '.js']
     },
     plugins: [
+        new CleanPlugin([assetsPath], { root: projectRootPath }),
         new webpack.optimize.OccurenceOrderPlugin(),
+        new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js"),
         new ExtractTextPlugin('style.css', { allChunks: true }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin()

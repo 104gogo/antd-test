@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "set NODE_ENV=development&&babel-node ./server.js",
-    "prod": "set NODE_ENV=production&&webpack --verbose --colors --display-error-details --config ./webpack/prod.config.js",
+    "prod": "set NODE_ENV=production&&webpack --verbose --colors --display-error-details -p --config ./webpack/prod.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,7 +16,8 @@
     "presets": [
       "react",
       "es2015"
-    ]
+    ],
+    "plugins": ["antd"]
   },
   "keywords": [],
   "author": "",
@@ -28,7 +29,9 @@
   "devDependencies": {
     "antd": "^0.12.3",
     "autoprefixer-loader": "^3.2.0",
+    "babel-plugin-antd": "^0.2.0",
     "body-parser": "^1.15.0",
+    "clean-webpack-plugin": "^0.1.8",
     "compression": "^1.6.1",
     "cookie-parser": "^1.4.1",
     "css-loader": "^0.23.1",
