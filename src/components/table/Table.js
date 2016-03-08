@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {  } from 'immutable';
 import { Row, Col } from 'antd';
 import * as TableActions from '../../actions/table';
 import BaseTable from '../common/BaseTable';

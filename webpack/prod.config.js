@@ -9,8 +9,10 @@ var projectRootPath = path.join(__dirname, '../');
 module.exports = {
     devtool: 'false',
 	entry: {
-    	index: path.join(__dirname, '../src', 'index.js'),
-        vendor: ['react', 'react-dom']
+        main: [
+    	   path.join(__dirname, '../src', 'index.js')
+        ],
+        vendor: ['react', 'react-dom', 'redux', 'react-redux', 'immutable', 'history', 'react-router']
     },
     output: {
         path: assetsPath,
@@ -24,7 +26,7 @@ module.exports = {
                 loaders: ['babel'],
                 exclude: /node_modules/
             },
-            { test: /\.css?$/, loaders: ['style', 'raw'] },
+            { test: /\.css?$/, loader: ExtractTextPlugin.extract('style', 'raw') },
             { test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css!autoprefixer!sass') },
             { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/font-woff" },
             { test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/font-woff" },
@@ -39,9 +41,8 @@ module.exports = {
     plugins: [
         new CleanPlugin([assetsPath], { root: projectRootPath }),
         new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js"),
-        new ExtractTextPlugin('style.css', { allChunks: true }),
-        new webpack.HotModuleReplacementPlugin(),
+        new webpack.optimize.CommonsChunkPlugin(/* chunkName= */'vendor', /* filename= */'vendor.bundle.js'),
+        new ExtractTextPlugin('[name].css', { allChunks: true }),
         new webpack.NoErrorsPlugin()
     ]
 };
