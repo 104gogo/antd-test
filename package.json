@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "set NODE_ENV=development&&babel-node ./server.js",
+    "dev": "set NODE_ENV=development&&babel-node ./server/dev.server.js",
     "prod": "set NODE_ENV=production&&webpack --verbose --colors --display-error-details -p --config ./webpack/prod.config.js",
-    "server": "set NODE_ENV=development&&babel-node ./prod.server.js",
+    "server": "set NODE_ENV=production&&babel-node ./server/prod.server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,7 +18,9 @@
       "react",
       "es2015"
     ],
-    "plugins": ["antd"]
+    "plugins": [
+      "antd"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -40,6 +42,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
     "history": "^2.0.0",
+    "html-webpack-plugin": "^2.9.0",
     "method-override": "^2.3.5",
     "morgan": "^1.7.0",
     "raw-loader": "^0.5.1",

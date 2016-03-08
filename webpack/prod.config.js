@@ -1,7 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CleanPlugin = require('clean-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var assetsPath = path.join(__dirname, '..', 'dist');
 var projectRootPath = path.join(__dirname, '../');
@@ -17,7 +17,7 @@ module.exports = {
     output: {
         path: assetsPath,
 	    filename: 'bundle.js',
-	    publicPath: '/dist/'
+	    publicPath: '/'
     },
     module: {
         loaders: [
@@ -43,6 +43,9 @@ module.exports = {
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.optimize.CommonsChunkPlugin(/* chunkName= */'vendor', /* filename= */'vendor.bundle.js'),
         new ExtractTextPlugin('[name].css', { allChunks: true }),
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': '"production"'
+        }),
         new webpack.NoErrorsPlugin()
     ]
 };

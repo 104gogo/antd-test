@@ -4,7 +4,7 @@ import webpack from 'webpack';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import path from 'path';
-import devWebpackConfig from './webpack/dev.config';
+import devWebpackConfig from '../webpack/dev.config';
 
 const app = express();
 const compiler = webpack(devWebpackConfig);
@@ -22,7 +22,7 @@ app.use(devMiddleware);
 app.use(hotMiddleware);
 
 app.use('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'src', 'index.html'))
+    res.sendFile(path.join(__dirname, '../views', 'dev.html'))
 });
 
 app.listen(8080, () => {
