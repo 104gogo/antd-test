@@ -1,12 +1,12 @@
 export function getPageTableData(page) {
 	return (dispatch, getState) => {
-		dispatch({ type: 'LOADING', json: { loading: true } });
+		dispatch({ type: 'SET_TABLE_PROP', loading: true });
 		setTimeout(() => {
 			const pageSize = 3;
-			let json = { loading: false, current: page, total: 10, datas: [] };
+			let table = { loading: false, current: page, total: 10, datas: [] };
 
 			for(let i = 0; i < pageSize; ++i) {
-				json.datas.push({
+				table.datas.push({
 					uuid: page * pageSize + i,
 					name: `胡彦斌${page * pageSize + i}`,
 		    		age: 32,
@@ -14,7 +14,7 @@ export function getPageTableData(page) {
 				});
 			}
 
-			dispatch({ type: 'GET_PAGETABLE_DATA',  json});
+			dispatch({ type: 'MERGE_TABLE_DATA', table });
 		}, 1500);
 	}
 }

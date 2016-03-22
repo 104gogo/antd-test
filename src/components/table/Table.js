@@ -6,6 +6,7 @@ import * as TableActions from '../../actions/table';
 import BaseTable from '../common/BaseTable';
 import PageTable from '../common/PageTable';
 import EditTable from '../common/EditTable';
+//import Table from '../common/Table';
 import './table.scss';
 
 class Table extends Component {
@@ -42,8 +43,6 @@ class Table extends Component {
 					      	<PageTable { ...table.pageTableData } actions={ actions } />
 					    </div>
 				    </Col>
-				    
-				    
 			    </Row>
 			    <Row>
 			    	<Col span="12">
@@ -51,6 +50,7 @@ class Table extends Component {
 					      	<EditTable data={ data1 } />
 					    </div>
 				    </Col>
+				    
 			    </Row>
 		    </div>
 	    );
